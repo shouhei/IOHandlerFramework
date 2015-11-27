@@ -9,7 +9,7 @@
 namespace IOHandlerFramework\IO\STD;
 use IOHandlerFramework\IO\Contracts\OutputInterface;
 
-class Output implements InputInterface
+class Output implements OutputInterface
 {
     public function read($data)
     {
