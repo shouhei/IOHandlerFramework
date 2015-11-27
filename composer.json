@@ -1,0 +1,16 @@
+{
+    "name": "shouhei/io-handler-framework",
+    "type": "Library",
+    "authors": [
+        {
+            "name": "山口将平",
+            "email": "shouhei.yamaguchi.be@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": { //（ファイル構成が）PSR-4形式で作りましたよ
+            "IOHandlerFramework\\": "src" //ファイル群は「src」ディレクトリの中ですよ
+        }
+    }
+}
