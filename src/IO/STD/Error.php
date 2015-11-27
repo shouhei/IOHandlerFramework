@@ -9,9 +9,9 @@
 namespace IOHandlerFramework\IO\STD;
 use IOHandlerFramework\IO\Contracts\OutputInterface;
 
-class Error implements InputInterface
+class Error implements OutputInterface
 {
-    public function read($data)
+    public function write($data)
     {
         echo fputs(STDERR, $data.PHP_EOL);
     }

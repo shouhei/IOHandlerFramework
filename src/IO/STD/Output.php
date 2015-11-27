@@ -11,7 +11,7 @@ use IOHandlerFramework\IO\Contracts\OutputInterface;
 
 class Output implements OutputInterface
 {
-    public function read($data)
+    public function write($data)
     {
         echo $data.PHP_EOL;
     }
