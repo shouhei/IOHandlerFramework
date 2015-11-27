@@ -1,6 +1,6 @@
 {
     "name": "shouhei/io-handler-framework",
-    "type": "Library",
+    "type": "library",
     "authors": [
         {
             "name": "山口将平",
