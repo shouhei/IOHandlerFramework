@@ -6,7 +6,7 @@
  * Time: 11:33
  */
 
-namespace Framework\IO\Contracts;
+namespace IOHandlerFramework\IO\Contracts;
 
 interface OutputInterface{
     public function write($data);
