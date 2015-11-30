@@ -5,10 +5,10 @@
  * Date: 2015/11/25
  * Time: 11:35
  */
-namespace Framework;
+namespace IOHandlerFramework\IO\Files\TSV;
 
-use Framework\IO\InputInterface;
-use Framework\IO\Files\AlterFile;
+use IOHandlerFramework\IO\Contracts\InputInterface;
+use IOHandlerFramework\IO\Files\AlterFile;
 
 class Input extends AlterFile implements InputInterface
 {

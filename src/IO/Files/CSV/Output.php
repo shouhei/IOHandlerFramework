@@ -6,10 +6,10 @@
  * Time: 11:35
  */
 
-namespace Framework;
+namespace IOHandlerFramework\IO\Files\CSV;
 
-use Framework\IO\Contracts\OutputInterface;
-use Framework\IO\Files\AlterFile;
+use IOHandlerFramework\IO\Contracts\OutputInterface;
+use IOHandlerFramework\IO\Files\AlterFile;
 
 class Output extends AlterFile implements OutputInterface
 {
