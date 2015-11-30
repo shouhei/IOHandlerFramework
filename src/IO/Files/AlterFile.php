@@ -5,7 +5,7 @@
  * Date: 2015/11/25
  * Time: 11:34
  */
-namespace Framework\IO\Files;
+namespace IOHandlerFramework\IO\Files;
 use SplFileObject;
 
 class AlterFile

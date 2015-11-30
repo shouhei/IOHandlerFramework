@@ -16,7 +16,7 @@ class CLIArgs{
     private $error_name;
     private $error_directory = './logs/';
 
-    public function __construct($argv, $suffix){
+    public function __construct($argv, $suffix = null){
         $this->input_name = $argv[1];
         if(count($argv) < 2){
             throw new Exception('need input file');
@@ -25,8 +25,12 @@ class CLIArgs{
         if(is_null($suffix)){
            throw new Exception('suffix must not be null');
         }
-        $this->output_name = $tmp_name[0] .'_'. $suffix .'_'. date('Y-m-d_h_i_s') . "." . $tmp_name[1];
-        $this->error_name = 'invalid_'.$suffix .'_'. date('Y-m-d_h_i_s') . "." . $tmp_name[1];
+        if(!is_null($suffix)){
+            $suffix = '_'. $suffix. '_';
+        }
+
+        $this->output_name = $tmp_name[0] . $suffix . date('Y-m-d_h_i_s') . "." . $tmp_name[1];
+        $this->error_name = 'invalid_'. $suffix . date('Y-m-d_h_i_s') . "." . $tmp_name[1];
     }
 
     public function getInputName(){
