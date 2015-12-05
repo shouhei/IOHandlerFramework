@@ -1,5 +1,6 @@
 {
     "name": "shouhei/io-handler-framework",
+    "bin": ["bin/io"],
     "type": "library",
     "authors": [
         {
@@ -15,4 +16,5 @@
             "IOHandlerFramework\\": "src"
         }
     }
+
 }
