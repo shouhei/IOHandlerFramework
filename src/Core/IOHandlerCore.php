@@ -17,7 +17,7 @@ class IOHandlerCore
     {
        $args = new Args($argv, $args_config);
        $cls = 'App\\'.$args->getExecutableClass();
-       $executable = new ReflectionMethod($cls, $args->getExecutableClass());
+       $executable = new ReflectionMethod($cls, $args->getExecutableMethod());
        $params = $executable->getParameters();
        foreach($params as $param){
            var_dump($param->getClass());
