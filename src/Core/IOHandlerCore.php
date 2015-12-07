@@ -39,7 +39,7 @@ class IOHandlerCore
         if (empty($exec_args)) {
             $executable->invoke(null);
         }else{
-            $executable->invoke(null, $exec_args);
+            $executable->invokeArgs(null, $exec_args);
         }
 
     }
