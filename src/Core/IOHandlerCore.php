@@ -23,7 +23,7 @@ class IOHandlerCore
         foreach($params as $param){
             var_dump($param->getClass());
         }
-        if (is_empty($exec_args)) {
+        if (empty($exec_args)) {
             $executable->invoke(null);
         }else{
             $executable->invoke(null, $exec_args);
