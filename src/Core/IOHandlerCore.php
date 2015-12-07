@@ -23,6 +23,6 @@ class IOHandlerCore
        foreach($params as $param){
            var_dump($param);
        }
-        call_user_func($cls, $executable, $dummy);
+        call_user_func_array([$cls, $executable], $dummy);
     }
 }
