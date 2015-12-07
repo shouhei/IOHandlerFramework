@@ -6,4 +6,4 @@ use Symfony\Component\Yaml\Parser;
 use IOHandlerFramework\Core\IOHandlerCore;
 
 $parser = new Parser();
-IOHandlerCore::execute($argv, $parser->parse(file_get_contents("../config/options.yml")));
+IOHandlerCore::execute($argv, $parser->parse(file_get_contents(__DIR__."/../config/options.yml")));
