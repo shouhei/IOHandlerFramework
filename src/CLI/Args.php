@@ -23,7 +23,7 @@ class Args{
         }else{
             throw new Exception('You didn\'t designate executable class');
         }
-        if(isset($argv[2]) && preg_match('/\A-/', $argv[2])){
+        if(isset($argv[2]) && !preg_match('/\A-/', $argv[2])){
             $this->method_ = array_shift($argv);
         }else{
             $this->method_ = 'main';
