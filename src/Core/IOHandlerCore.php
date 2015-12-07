@@ -15,12 +15,14 @@ class IOHandlerCore
 {
     public static function execute($argv, $args_config)
     {
-       $args = new Args($argv, $args_config);
-       $cls = 'App\\'.$args->getExecutableClass();
-       $executable = new ReflectionMethod($cls, $args->getExecutableMethod());
-       $params = $executable->getParameters();
+        $args = new Args($argv, $args_config);
+        $cls = 'App\\'.$args->getExecutableClass();
+        $executable = new ReflectionMethod($cls, $args->getExecutableMethod());
+        $params = $executable->getParameters();
+        $dummy = [];
        foreach($params as $param){
-           var_dump($param->getClass());
+           var_dump($param);
        }
+        call_user_func($executable, $cls, $dummy);
     }
 }
