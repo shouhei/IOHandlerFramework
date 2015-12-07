@@ -16,13 +16,18 @@ class IOHandlerCore
     public static function execute($argv, $args_config)
     {
         $args = new Args($argv, $args_config);
-        $cls = 'App\\'.$args->getExecutableClass();
-        $executable = new ReflectionMethod($cls, $args->getExecutableMethod());
+        $exec_cls = 'App\\'.$args->getExecutableClass();
+        $executable = new ReflectionMethod($exec_cls, $args->getExecutableMethod());
         $params = $executable->getParameters();
-        $dummy = [];
-       foreach($params as $param){
-           var_dump($param);
-       }
-        call_user_func_array([$cls, $executable], $dummy);
+        $exec_args = [];
+        foreach($params as $param){
+            var_dump($param->getClass());
+        }
+        if (is_empty($exec_args)) {
+            $executable->invoke(null);
+        }else{
+            $executable->invoke(null, $exec_args);
+        }
+
     }
 }
