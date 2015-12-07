@@ -24,11 +24,11 @@ class IOHandlerCore
         $input_counter = 0;
         foreach($params as $param){
             $exec_cls = $param->getClass();
-            if(preg_match('/File\\*\\Input\Z/',$exec_cls->getName())){
+            if(preg_match('/Files\\.*\\Input\Z/',$exec_cls->getName())){
                 $exec_args[] = new $exec_cls($options->i[$input_counter]);
                 $input_counter++;
             }
-            if(preg_match('/File\\*\\Output\Z/', $exec_cls->getName())){
+            if(preg_match('/Files\\.*\\Output\Z/', $exec_cls->getName())){
                 $tmp_name = mb_split('/\./', $options->i[0]);
                 $suffix = isset($options->s[0])?$options->s[0]:'';
                 $exec_args[] = new $exec_cls($tmp_name[0] . $suffix . date('Y-m-d_h_i_s') . "." . $tmp_name[1]);
