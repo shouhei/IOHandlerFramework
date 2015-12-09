@@ -36,7 +36,7 @@ class IOHandlerCore
                 $tmp_cls = $exec_cls->getName();
                 $exec_args[] = new $tmp_cls($tmp_name[0] .'_'. $suffix .'_'. date('Y-m-d_h_i_s') . "." . $tmp_name[1]);
                 $output_flg = 1;
-            }else(preg_match('/Files\\\.*\\Output\Z/', $exec_cls->getName()) && $output_flg == 1){
+            }elseif(preg_match('/Files\\\.*\\Output\Z/', $exec_cls->getName()) && $output_flg == 1){
                 $tmp_name = preg_split('/\./', $options->i[0]);
                 $suffix = isset($options->s[0])?$options->s[0]:'';
                 $tmp_cls = $exec_cls->getName();
