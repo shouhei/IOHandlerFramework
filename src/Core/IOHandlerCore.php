@@ -33,7 +33,7 @@ class IOHandlerCore
                 $tmp_name = preg_split('/\./', $options->i[0]);
                 $suffix = isset($options->s[0])?$options->s[0]:'';
                 $tmp_cls = $exec_cls->getName();
-                $exec_args[] = new $tmp_cls($tmp_name[0] . $suffix . date('Y-m-d_h_i_s') . "." . $tmp_name[1]);
+                $exec_args[] = new $tmp_cls($tmp_name[0] .'_'. $suffix .'_'. date('Y-m-d_h_i_s') . "." . $tmp_name[1]);
             }
         }
         if (empty($exec_args)) {
