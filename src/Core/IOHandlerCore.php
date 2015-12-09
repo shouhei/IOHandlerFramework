@@ -30,7 +30,7 @@ class IOHandlerCore
                 $input_counter++;
             }
             if(preg_match('/Files\\\.*\\Output\Z/', $exec_cls->getName())){
-                $tmp_name = mb_split('/\./', $options->i[0]);
+                $tmp_name = preg_split('/\./', $options->i[0]);
                 $suffix = isset($options->s[0])?$options->s[0]:'';
                 $tmp_cls = $exec_cls->getName();
                 $exec_args[] = new $tmp_cls($tmp_name[0] . $suffix . date('Y-m-d_h_i_s') . "." . $tmp_name[1]);
