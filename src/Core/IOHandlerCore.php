@@ -22,6 +22,7 @@ class IOHandlerCore
         $params = $executable->getParameters();
         $exec_args = [];
         $input_counter = 0;
+        $output_flg = 0;
         foreach($params as $param){
             $exec_cls = $param->getClass();
             if(preg_match('/Files\\\.*\\Input\Z/',$exec_cls->getName())){
@@ -29,11 +30,17 @@ class IOHandlerCore
                 $exec_args[] = new $tmp_cls($options->i[$input_counter]);
                 $input_counter++;
             }
-            if(preg_match('/Files\\\.*\\Output\Z/', $exec_cls->getName())){
+            if(preg_match('/Files\\\.*\\Output\Z/', $exec_cls->getName()) && $output_flg == 0){
                 $tmp_name = preg_split('/\./', $options->i[0]);
                 $suffix = isset($options->s[0])?$options->s[0]:'';
                 $tmp_cls = $exec_cls->getName();
                 $exec_args[] = new $tmp_cls($tmp_name[0] .'_'. $suffix .'_'. date('Y-m-d_h_i_s') . "." . $tmp_name[1]);
+                $output_flg = 1;
+            }else{
+                $tmp_name = preg_split('/\./', $options->i[0]);
+                $suffix = isset($options->s[0])?$options->s[0]:'';
+                $tmp_cls = $exec_cls->getName();
+                $exec_args[] = new $tmp_cls('logs/' . $suffix .'_'. date('Y-m-d_h_i_s') . "." . $tmp_name[1]);
             }
         }
         if (empty($exec_args)) {
